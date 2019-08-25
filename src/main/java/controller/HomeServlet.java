@@ -13,6 +13,7 @@ import java.io.IOException;
 public class HomeServlet extends HttpServlet {
     // finalne i statyczne - wygoda używania w tej klasie
     UserDAO userDAO;
+    private static final String LOGIN = "login";
     private static final String USERNAME = "username";
     private static final String PASSWORD = "password";
     private static final String REMEMBER = "remember";
@@ -26,7 +27,7 @@ public class HomeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = null;
+        String login = null;
         String password = null;
 
         req.getRequestDispatcher("/login.jsp").forward(req, resp);
@@ -42,11 +43,11 @@ public class HomeServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = req.getParameter(USERNAME);
+        String login = req.getParameter(LOGIN);
         String password = req.getParameter(PASSWORD);
         String remember = req.getParameter(REMEMBER);
 
-        resp.getWriter().println("User = " + username + "Password = " + password);
+        resp.getWriter().println("User = " + login + "Password = " + password);
 
     }
 }

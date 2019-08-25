@@ -25,7 +25,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                     </div>
-                    <input name="username" class="form-control" placeholder="Login" type="text">
+                    <input name="login" class="form-control" placeholder="Login" type="text">
                 </div>
             </div>
             <div class="form-group">

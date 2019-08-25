@@ -35,4 +35,10 @@ public class UserDAO extends AbstractDAO {
                 "SELECT c FROM User c WHERE c.email = :email", User.class);
         return query.setParameter("email", email).getSingleResult();
     }
+
+    public User getUserByLogin(String login) {
+        TypedQuery<User> query = entityManager.createQuery(
+                "SELECT c FROM User c WHERE c.login = :login", User.class);
+        return query.setParameter("login", login).getSingleResult();
+    }
 }

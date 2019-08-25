@@ -12,6 +12,9 @@ public class User {
     @Column(name = "id")
     private long id;
 
+    @Column(name = "login")
+    private String login;
+
     @Column(name = "name")
     private String name;
 
@@ -32,6 +35,7 @@ public class User {
     }
 
     public User(String name, String lastname, String email, Date dateOfregistration, String password) {
+        this.login = login;
         this.name = name;
         this.lastname = lastname;
         this.email = email;
@@ -41,6 +45,10 @@ public class User {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public void setName(String name) {
@@ -67,6 +75,10 @@ public class User {
         return id;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
     public String getName() {
         return name;
     }
@@ -91,6 +103,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
+                ", login='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +
