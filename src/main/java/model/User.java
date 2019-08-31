@@ -3,6 +3,8 @@ package model;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
@@ -30,6 +32,14 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "follows_followed",
+            joinColumns = {@JoinColumn(name = "follows_id")},
+            inverseJoinColumns = {@JoinColumn(name = "followed_id")})
+    private Set<User> follows = new HashSet<>();
+
+    @ManyToMany(mappedBy = "follows")
+    private Set<User>  followed = new HashSet<>();
     public User() { // wymagany pojo (plain object java)
 
     }
@@ -97,6 +107,22 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public Set<User> getFollows() {
+        return follows;
+    }
+
+    public void setFollows(Set<User> follows) {
+        this.follows = follows;
+    }
+
+    public Set<User> getFollowed() {
+        return followed;
+    }
+
+    public void setFollowed(Set<User> followed) {
+        this.followed = followed;
     }
 
     @Override
