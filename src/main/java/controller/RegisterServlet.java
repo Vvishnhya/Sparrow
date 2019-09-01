@@ -1,8 +1,9 @@
 package controller;
 
-import jdk.nashorn.internal.runtime.options.LoggingOption;
 import model.User;
 import services.UserService;
+
+import static controller.HomeServlet.LOGIN;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,8 +17,7 @@ import java.util.Date;
 public class RegisterServlet extends HttpServlet {
 
     // 17. dodajemy zmienne do metody doPOST
-
-    private static final String LOGIN = "login";
+   // private static final String LOGIN = "login";
     private static final String USERNAME = "username";
     private static final String PASSWORD = "password";
     private static final String PASSWORD_REPEATED = "passwordRepeated";
@@ -95,7 +95,7 @@ public class RegisterServlet extends HttpServlet {
             user.setLastname(lastName);
             user.setPassword(password);
             user.setEmail(email);
-            user.setDateOfregistration(new Date());
+            user.setDateOfRegistration(new Date());
 
             String registerStatus = userService.registerUser(user);
 

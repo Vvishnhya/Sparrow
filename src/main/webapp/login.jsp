@@ -19,6 +19,11 @@
     <div class="my-3 p-3 bg-white rounded box-shadow">
         <h4 class="text-center mb-4 mt-1">Sign in</h4>
         <hr>
+        <c:if test='<%=request.getAttribute("hasError") == "true" %>'>
+            <div class="alert alert-warning">
+                <strong>Failure!</strong> <%=request.getAttribute("error")%>
+            </div>
+        </c:if>
         <form action="login" method="POST">
             <div class="form-group">
                 <div class="input-group">

@@ -10,18 +10,18 @@ public class Tweet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL) // wiele tweetów jeden autor
     @JoinColumn(name = "id_author")
     private User author;
-    @Column(name = "published_at")
+    @Column(name = "published_at") // data publikacji tweeta
     private Date publishedAt;
-    @Column(name = "message")
+    @Column(name = "message") // message
     private String message;
 
-
+// zawsze pamiętaj o pojo
     public Tweet() {
     }
-
+//oraz o akcesoriach
     public int getId() {
         return id;
     }

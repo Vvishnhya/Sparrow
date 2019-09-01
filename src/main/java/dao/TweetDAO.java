@@ -31,6 +31,7 @@ public class TweetDAO extends AbstractDAO {
         follows.add(userByLogin);
 
         Query query = entityManager.createQuery("select t from Tweet t where t.author in :follows");
+        //klauzula "in"
         return query.setParameter("follows", follows).getResultList();
     }
 

@@ -1,7 +1,6 @@
 package model;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -27,12 +26,12 @@ public class User {
     private String email;
 
     @Column(name = "date_of_registration")
-    private Date dateOfregistration;
+    private Date dateOfRegistration;
 
     @Column(name = "password")
     private String password;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinTable(name = "follows_followed",
             joinColumns = {@JoinColumn(name = "follows_id")},
             inverseJoinColumns = {@JoinColumn(name = "followed_id")})
@@ -44,12 +43,12 @@ public class User {
 
     }
 
-    public User(String name, String lastname, String email, Date dateOfregistration, String password) {
+    public User(String name, String lastname, String email, Date dateOfRegistration, String password) {
         this.login = login;
         this.name = name;
         this.lastname = lastname;
         this.email = email;
-        this.dateOfregistration = dateOfregistration;
+        this.dateOfRegistration = dateOfRegistration;
         this.password = password;
     }
 
@@ -73,8 +72,8 @@ public class User {
         this.email = email;
     }
 
-    public void setDateOfregistration(Date dateOfregistration) {
-        this.dateOfregistration = dateOfregistration;
+    public void setDateOfRegistration(Date dateOfRegistration) {
+        this.dateOfRegistration = dateOfRegistration;
     }
 
     public void setPassword(String password) {
@@ -101,8 +100,8 @@ public class User {
         return email;
     }
 
-    public Date getDateOfregistration() {
-        return dateOfregistration;
+    public Date getDateOfRegistration() {
+        return dateOfRegistration;
     }
 
     public String getPassword() {
@@ -133,7 +132,7 @@ public class User {
                 ", name='" + name + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +
-                ", dateOfregistration=" + dateOfregistration +
+                ", dateOfregistration=" + dateOfRegistration +
                 ", password='" + password + '\'' +
                 '}';
     }

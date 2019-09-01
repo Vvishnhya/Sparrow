@@ -32,7 +32,7 @@ public class UserService {
         } else if (isLoginAlreadyUsed(user.getLogin())){
             return LOGIN_ERROR;
         }
-        userDAO.createUser(user);
+        userDAO.saveUser(user);
         return SUCCESS;
     }
 
