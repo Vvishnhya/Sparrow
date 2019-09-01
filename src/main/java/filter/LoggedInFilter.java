@@ -12,7 +12,7 @@ import static controller.HomeServlet.LOGIN;
 
 // przekierowuje do ekranu logowania
 
-@WebFilter(filterName = "loggedInFilter", servletNames = {"userServlet"})
+@WebFilter(filterName = "loggedInFilter", servletNames = {"userServlet", "followServlet", "unfollowServlet"})
 public class LoggedInFilter implements Filter {
 
     @Override

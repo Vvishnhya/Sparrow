@@ -39,7 +39,7 @@
                     <strong class="d-block text-gray-dark">
                             On sparrow since:
                             <fmt:formatDate value="${followedUser.dateOfRegistration}" pattern="yyyy-MM-dd"/></strong>
-                    <a href="unfollow?usernameToUnfollow=${followedUser.login}">Unfollow</a>
+                    <a href="unfollow?userLoginToUnfollow=${followedUser.login}">Unfollow</a>
                 </p>
             </div>
         </c:forEach>
@@ -57,8 +57,8 @@
                         On sparrow since:
                         <fmt:formatDate value="${notFollowedUser.dateOfRegistration}" pattern="yyyy-MM-dd"/></strong>
                     </br>
-                    <a href="unfollow?usernameToUnfollow=${followedUser.login}">Unfollow</a>
-                    <a href="follow?usernameToFollow=${notFollowedUser}">Follow</a>
+<%--                    <a href="unfollow?usernameToUnfollow=${followedUser.login}">Unfollow</a>--%>
+                    <a href="follow?userLoginToFollow=${notFollowedUser.login}">Follow</a>
                 </p>
             </div>
         </c:forEach>
